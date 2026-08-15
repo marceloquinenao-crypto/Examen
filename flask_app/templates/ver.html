@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Ver Peluche</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <div class="nav-bar">
+        <h2>{{ peluche.nombre }}</h2>
+        <div class="nav-links">
+            <a href="/dashboard" class="btn">Inicio</a>
+            <a href="/logout" class="btn">Cerrar Sesión</a>
+        </div>
+    </div>
+
+    <div class="card">
+        <p><strong>Dueño original (Donador):</strong> {{ peluche.donador }}</p>
+        <p><strong>Descripción:</strong> {{ peluche.descripcion }}</p>
+        <hr>
+        <p><strong>Adoptado por:</strong> 
+            {% if peluche.adoptador %}
+                {{ peluche.adoptador }}
+            {% else %}
+                <em>Aún esperando un hogar</em>
+            {% endif %}
+        </p>
+        <p><strong>Visitas a esta página:</strong> {{ peluche.visitas }}</p>
+    </div>
+</body>
+</html>

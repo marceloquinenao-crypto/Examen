@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Dashboard - Peluches</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <div class="nav-bar">
+        <h2>Bienvenid@ {{ session['nombre'] }}</h2>
+        <div class="nav-links">
+            <a href="/nueva" class="btn">Donar Peluche</a>
+            <a href="/logout" class="btn">Cerrar Sesión</a>
+        </div>
+    </div>
+
+    <div class="container" style="display: block;">
+        <h3>Todos los Peluches</h3>
+        
+        {% for peluche in peluches %}
+        <div class="table-row">
+            <p><strong>{{ peluche.nombre }}</strong> | Donador: {{ peluche.donador }}</p>
+            
+            <div class="actions">
+                <a href="/ver/{{ peluche.id }}" class="btn">Ver</a>
+                {% if peluche.usuario_id == session['usuario_id'] %}
+                    <a href="/editar/{{ peluche.id }}" class="btn">Editar</a>
+                    <a href="/borrar/{{ peluche.id }}" class="btn btn-danger">Borrar</a>
+                
+                {% else %}
+                    {% if not peluche.adoptador_id %}
+                        <a href="/adoptar/{{ peluche.id }}" class="btn">Adoptar</a>
+                    {% else %}
+                        <span class="btn btn-disabled">ADOPTADO</span>
+                    {% endif %}
+                {% endif %}
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</body>
+</html>
