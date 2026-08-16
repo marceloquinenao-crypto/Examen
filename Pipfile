@@ -7,8 +7,8 @@ name = "pypi"
 flask = "*"
 pymysql = "*"
 flask-bcrypt = "*"
-python-dotenv = "*"
 gunicorn = "*"
+python-dotenv = "*"
 
 [dev-packages]
 
