@@ -1,13 +1,13 @@
 
 * {
     box-sizing: border-box;
-    font-family: Arial, sans-serif;
+    font-family: Comic Sans MS, sans-serif, cursive;
 }
 
 body {
     margin: 0;
     padding: 20px;
-    background-color: #f4f4f4;
+    background-color: white;
 }
 .nav-bar {
     display: flex;
@@ -28,13 +28,21 @@ body {
     padding: 5px 15px;
     border-radius: 5px;
     background-color: #e0e0e0;
+    border: 2px solid black;
     cursor: pointer;
     font-size: 14px;
     margin-left: 10px;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
 }
 
-.btn-danger { background-color: #ffcccc; }
-.btn-disabled { background-color: #aaaaaa; cursor: not-allowed; }
+.btn-danger { 
+    background-color: #ffcccc;
+}
+.btn-disabled { 
+    background-color: #888888; 
+    color: white; 
+    cursor: not-allowed;
+}
 
 /* Contenedores y Formularios */
 .container {
@@ -47,14 +55,22 @@ body {
 .form-group {
     margin-bottom: 15px;
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
+    align-items: center;
 }
 
-.form-group label { margin-bottom: 5px; font-weight: bold; }
+.form-group label { 
+    margin-bottom: 15px;
+    font-weight: bold;
+    width: 150px;
+    margin-right: 10px;}
+
 .form-group input, .form-group textarea {
     padding: 8px;
-    border: 1px solid black;
     width: 250px;
+    border-style: solid;
+    border-color: black;
+    border-width: 3px 1px 4px 2px;
 }
 
 .error-text {
